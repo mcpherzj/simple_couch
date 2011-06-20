@@ -4,11 +4,15 @@ require 'rubygems'
 require 'rest_client'
 require 'json'
 
-DB = "http://127.0.0.1:9393"
+# local dev couchdb
+#DB = "http://127.0.0.1:9393"
+
+# cloudant couchdb on heroku - production
+DB = "http://blooming-dawn-565.heroku.com"
 
 if ARGV.first == 'put'
   permalink, rating = ARGV.pop 2
-  puts RestClient.post "#{DB}/rate/#{permalink}/#{rating}", 'hello world!'
+  puts RestClient.post "#{DB}/rate/#{permalink}/#{rating}", ''
 end
 
 if ARGV.first == 'get'
