@@ -1,0 +1,9 @@
+{
+  "_id": "_design/ratings",
+  "views": {
+    "by_permalink": {
+      "reduce": "function( keys, values ) { return sum( values ) / values.length;}",
+      "map": "function( doc ) { if( doc.type == 'rating' ) emit( doc.permalink, doc.rating );}"
+    }
+  }
+}
