@@ -8,7 +8,7 @@ require 'json'
 #DB = "http://127.0.0.1:9393"
 
 # cloudant couchdb on heroku - production
-DB = "http://blooming-dawn-565.heroku.com"
+DB = "http://blooming-dawn-565.herokuapp.com"
 
 if ARGV.first == 'put'
   permalink, rating = ARGV.pop 2
