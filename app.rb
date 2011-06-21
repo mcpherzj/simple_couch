@@ -16,7 +16,7 @@ require 'json'
 #DB = 'http://localhost:5984'
 
 get '/get_ratings/:permalink' do
-  data = RestClient.get "#{settings.couchdb_url}/eee-meals/_design/ratings/_view/by_permalink?group=true"
+  data = RestClient.get "#{settings.cloudant_url}/eee-meals/_design/ratings/_view/by_permalink?group=true"
   result = JSON.parse( data )['rows'].select do |row|
     row if row['key'] == params[:permalink]
   end
@@ -25,7 +25,7 @@ get '/get_ratings/:permalink' do
 end
 
 post '/rate/:permalink/:rating' do
-  doc_url = "#{settings.couchdb_url}/eee-meals/#{params[:permalink]}"
+  doc_url = "#{settings.cloudant_url}/eee-meals/#{params[:permalink]}"
   rev = JSON.parse( RestClient.get( doc_url ) )['_rev'] rescue nil
 
   new_doc = {
@@ -40,7 +40,7 @@ post '/rate/:permalink/:rating' do
 end
 
 get '/get_all_ratings' do
-  data = RestClient.get "#{settings.couchdb_url}/eee-meals/_design/get_all_ratings/_view/all"
+  data = RestClient.get "#{settings.cloudant_url}/eee-meals/_design/get_all_ratings/_view/all"
   
   result = JSON.parse( data )
 
