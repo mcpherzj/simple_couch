@@ -1,0 +1,8 @@
+{
+  "_id": "_design/fetchClubs",
+  "views": {
+    "all": {
+      "map": "function( doc ) { if( doc.type == 'club' ) emit(doc._id, doc);}"
+    }
+  }
+}
