@@ -1,3 +1,6 @@
+# use this to start couchdb
+./.couchdb
+
 curl -X GET http://127.0.0.1:5984/ipressbox/_design/fetchClubSummaries/_view/all
 
 curl -X PUT http://admin:admin@0.0.0.0:52299/demo/_design/fetchClubSummaries -d @design_fetch_club_summaries.json
