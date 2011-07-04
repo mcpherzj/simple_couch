@@ -1,0 +1,10 @@
+{
+  "_id": "_design/fetchClubDetail",
+  "_rev": "1-968706523f5f5301a2bf97207146154e",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { if( doc.type == 'club' ) 
+				emit(doc.name, {location: doc.city + ', ' + doc.region + ', ' + doc.country});}"
+    }
+  }
+}

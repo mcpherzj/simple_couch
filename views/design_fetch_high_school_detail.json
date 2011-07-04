@@ -1,0 +1,10 @@
+{
+  "_id": "_design/fetchHighSchool",
+  "_rev": "1-60ba4293eddf0a2bbf2f0c030bcfaf82",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { if( doc.type == 'club' && doc.category == 'high school') 
+				emit(doc._id, {id: doc._id, name: doc.name + ' High School', mascot: '', colors: '', area: doc.area + ', ' + doc.region, location: doc.city + ', ' + doc.region + ', ' + doc.country, school_district: ''});}"
+    }
+  }
+}

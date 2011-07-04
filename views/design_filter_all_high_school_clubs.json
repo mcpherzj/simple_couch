@@ -1,0 +1,11 @@
+{
+  "_id":"_design/replicate_doc",
+  "filters": {
+    "all_high_school_clubs": "function(doc, req) { 
+  if (doc.type && doc.type == 'club' && doc.category && doc.category == 'high school') {
+    return true;
+  } else {
+    return false;
+  }}"
+  }
+}
