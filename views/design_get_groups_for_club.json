@@ -1,0 +1,15 @@
+{
+  "_id": "_design/getGroupsForClub",
+  "_rev":"2-7c675420fdef07675882cc960f334914",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { 
+         if( doc.type == 'group' && doc.clubs) {
+			for (var i in doc.clubs) {
+				emit(doc.clubs[i], {season: doc.season, sport: doc.sport, name: doc.name });
+			}
+         }
+	   }"
+    }
+  }
+}

@@ -12,4 +12,4 @@ curl -X POST http://admin:admin@0.0.0.0:63264/demo -d @club_cypress_creek.json -
 curl -X GET http://127.0.0.1:5984/ipressbox/a930005564ac969e21aca6d37400432b
 
 # replication call
-url -X POST http://127.0.0.1:5984/_replicate  -d '{"source":"http://127.0.0.1:5984/ipressbox", "target":"http://admin:admin@0.0.0.0:62351/demo", "filter":"replicate_doc/all_high_school_clubs"}' -H "Content-Type: application/json"
+url -X POST http://127.0.0.1:5984/_replicate  -d '{"source":"http://127.0.0.1:5984/ipressbox", "target":"http://admin:admin@0.0.0.0:62351/demo", "filter":"replicate_doc/all_high_school_clubs"}' -H "Content-Type: application/json"d
