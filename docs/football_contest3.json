@@ -1,0 +1,16 @@
+{
+  "season": "2011-2012",
+  "sport": "football",
+  "date": "2011/10/01 18:00:00",
+  "field": "Kenneth Pridgeon Stadium",
+  "location": "Houston, Texas, USA",
+  "home_team": "a930005564ac969e21aca6d37400432b",
+  "visitor_team": "a930005564ac969e21aca6d374008a90",
+  "district_game": true,
+  "game_complete": false,
+  "is_playoff_game": false,
+  "status": "",
+  "status_detail": "",
+  "visibility": "public",
+  "type": "contest"
+}

@@ -1,0 +1,14 @@
+{
+  "_id": "_design/get_clubs",
+  "views": {
+    "by_group": {
+      "map": "function(doc) {
+	      if (doc.type == 'group') {
+	          for (var x = 0; x < doc.clubs.length; x++) {
+	              emit(doc._id, { _id: doc.clubs[x] });
+	          }
+	      }
+	   }"
+    }
+  }
+}

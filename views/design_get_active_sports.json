@@ -1,0 +1,14 @@
+{
+  "_id": "_design/get_active_sports",
+  "views": {
+    "all": {
+      "reduce" : 
+      "function(keys, values) { return null; }",
+      "map": 
+      "function( doc ) { 
+          if( doc.type == 'contest' ) 
+		      emit([doc.season,doc.sport], null);
+	   }"
+    }
+  }
+}

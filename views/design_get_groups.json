@@ -1,0 +1,12 @@
+{
+  "_id": "_design/get_groups",
+  "views": {
+    "by_season_sport": {
+      "map": 
+      "function( doc ) { 
+          if( doc.type == 'group' ) 
+		      emit([doc.season,doc.sport], doc);
+	   }"
+    }
+  }
+}

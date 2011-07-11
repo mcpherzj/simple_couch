@@ -1,0 +1,14 @@
+{
+  "_id": "_design/getScheduleByDate",
+  "_rev": "1-8e8e6581785518fab3dfd5a53ef96a8c",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { 
+         if( doc.type == 'contest' ) {
+		   emit([doc.season, doc.sport, doc.home_team, doc.date], { game: doc, _id: doc.visiting_team });
+		   emit([doc.season, doc.sport, doc.visiting_team, doc.date], { game: doc, _id: doc.home_team });
+         }
+	   }"
+    }
+  }
+}

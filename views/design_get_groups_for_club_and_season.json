@@ -1,0 +1,14 @@
+{
+  "_id": "_design/getGroupsForClubAndSeason",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { 
+         if( doc.type == 'group' && doc.clubs) {
+			for (var i in doc.clubs) {
+				emit([doc.clubs[i],doc.season], {season: doc.season, sport: doc.sport, name: doc.name });
+			}
+         }
+	   }"
+    }
+  }
+}

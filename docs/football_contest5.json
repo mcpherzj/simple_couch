@@ -1,0 +1,19 @@
+{
+  "_rev":"1-ca8afbb442534d1e06f49a2d14bf2412",
+  "season": "2010-2011",
+  "sport": "football",
+  "date": "2010/09/11 18:00:00",
+  "field": "Berry Center",
+  "location": "Cypress, Texas, USA",
+  "home_team": "a930005564ac969e21aca6d37400432b",
+  "home_score": 20, 
+  "visitor_team": "a930005564ac969e21aca6d37400552c",
+  "visitor_score": 28, 
+  "district_game": true,
+  "game_complete": true,
+  "is_playoff_game": false,
+  "status": "F",
+  "status_detail": "",
+  "visibility": "public",
+  "type": "contest"
+}

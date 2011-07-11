@@ -1,0 +1,16 @@
+{
+  "season": "2011-2012",
+  "sport": "football",
+  "date": "2011/09/10 18:00:00",
+  "field": "Berry Center",
+  "location": "Cypress, Texas, USA",
+  "home_team": "a930005564ac969e21aca6d37400552c",
+  "visitor_team": "a930005564ac969e21aca6d37400432b",
+  "district_game": true,
+  "game_complete": false,
+  "is_playoff_game": false,
+  "status": "",
+  "status_detail": "",
+  "visibility": "public",
+  "type": "contest"
+}

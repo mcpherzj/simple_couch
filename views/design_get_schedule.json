@@ -1,0 +1,14 @@
+{
+  "_id": "_design/getSchedule",
+  "_rev": "1-6624f05853cec1863ae34612c0cb2b14",
+  "views": {
+    "by_id": {
+      "map": "function( doc ) { 
+         if( doc.type == 'contest' ) {
+		   emit([doc.season, doc.sport, doc.home_team], doc);
+		   emit([doc.season, doc.sport, doc.visiting_team], doc);
+         }
+	   }"
+    }
+  }
+}

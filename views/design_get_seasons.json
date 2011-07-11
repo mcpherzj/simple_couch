@@ -1,0 +1,8 @@
+{
+  "_id": "_design/get_seasons",
+  "views": {
+    "all": {
+      "map": "function( doc ) { if( doc.type == 'season' ) emit(doc._id, doc);}"
+    }
+  }
+}

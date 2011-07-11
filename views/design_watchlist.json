@@ -1,0 +1,14 @@
+{
+  "_id": "_design/watchlist",
+  "views": {
+    "list": {
+      "map": "function(doc) {
+	   if (doc.type == 'user') {
+	      for (var x = 0; x < doc.watchlist.length; x++) {
+	         emit(doc.type, { _id: doc.watchlist[x] });
+	      }
+	   }
+	}"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "_id": "_design/getStandings",
+  "_rev":"30-527532e70a88236efd01d365fc515c83",
+  "views": {
+    "by_id": {
+      "reduce": "function( keys, values ) { 
+	var win = 0;
+	var loss = 0;
+	var tie = 0;
+	var district_win = 0;
+	var district_loss = 0;
+	var district_tie = 0;	
+	var club_name = '';
+	var is_home_team = false;
+	for(var i=0; i < values.length; i++) {
+	    club_name = keys[i][0][2];
+	    if (club_name == values[i].home_team) {
+	        is_home_team = true;
+		}
+	    if (values[i].game_complete) {
+	        if (values[i].district_game) {
+			      if (is_home_team) {
+			          if (values[i].home_score > values[i].visitor_score)
+				          district_win += 1;
+				      else if (values[i].visitor_score > values[i].home_score)
+				      	  district_loss += 1;
+				      else if (values[i].home_score == values[i].visitor_score)
+				          district_tie += 1;
+				   } else {
+		              if (values[i].home_score > values[i].visitor_score)
+			              district_loss += 1;
+			          else if (values[i].visitor_score > values[i].home_score)
+			      	      district_win += 1;
+			          else if (values[i].home_score == values[i].visitor_score)
+			              district_tie += 1;
+				  }
+		      }
+
+		      if (is_home_team) {
+		          if (values[i].home_score > values[i].visitor_score)
+			          win += 1;
+			      else if (values[i].visitor_score > values[i].home_score)
+			      	  loss += 1;
+			      else if (values[i].home_score == values[i].visitor_score)
+			          tie += 1;
+			   } else {
+	              if (values[i].home_score > values[i].visitor_score)
+		              loss += 1;
+		          else if (values[i].visitor_score > values[i].home_score)
+		      	      win += 1;
+		          else if (values[i].home_score == values[i].visitor_score)
+		              tie += 1;
+			  }
+	    }
+	}
+	return {wins: win, losses: loss, ties: tie, district_wins: district_win, district_losses: district_loss, district_ties: district_tie};       
+	}",
+      "map": "function(doc) {
+	      if (doc.type == 'contest') {
+	         emit([doc.season, doc.sport, doc.home_team], doc );
+	         emit([doc.season, doc.sport, doc.visitor_team], doc);
+	      }
+	   }"
+    }
+  }
+}
